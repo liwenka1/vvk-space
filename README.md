@@ -11,6 +11,7 @@ vvk-space/
 │   ├── portfolio/    # 作品集 (端口: 3001)
 │   └── weekly/       # 技术周刊 (端口: 3002)
 ├── packages/
+│   ├── shared/             # 共享配置和个人信息
 │   ├── eslint-config/      # 共享 ESLint 配置
 │   └── typescript-config/  # 共享 TypeScript 配置
 ```
@@ -69,3 +70,56 @@ cd apps/portfolio && pnpm dev
 # 技术周刊
 cd apps/weekly && pnpm dev
 ```
+
+## 共享配置管理
+
+所有个人信息和站点配置都集中在 `packages/shared` 中：
+
+### 修改个人信息
+
+编辑 `packages/shared/src/profile.ts`：
+
+```typescript
+export const profile: Profile = {
+  name: "Your Name",
+  nickname: "VVK",
+  title: "Full Stack Developer",
+  bio: "热爱技术，专注于 Web 开发和用户体验",
+  email: "your.email@example.com",
+  social: [
+    { name: "GitHub", url: "https://github.com/yourusername" },
+    { name: "Twitter", url: "https://twitter.com/yourusername" }
+  ]
+};
+```
+
+### 修改站点配置
+
+编辑 `packages/shared/src/constants.ts`：
+
+```typescript
+export const SITE_CONFIG = {
+  website: {
+    name: "VVK Space",
+    description: "个人主站描述",
+    url: "https://vvk.space"
+  }
+  // ... 其他站点配置
+};
+```
+
+### 在应用中使用
+
+```typescript
+// 导入个人信息
+import { profile } from "@vvk/shared/profile";
+
+// 导入站点配置
+import { SITE_CONFIG } from "@vvk/shared/constants";
+
+// 使用
+console.log(profile.name); // Your Name
+console.log(SITE_CONFIG.website.name); // VVK Space
+```
+
+修改一次，三个站点自动同步更新！

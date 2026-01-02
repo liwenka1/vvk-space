@@ -26,6 +26,9 @@ importers:
 
   apps/portfolio:
     dependencies:
+      '@vvk/shared':
+        specifier: workspace:*
+        version: link:../../packages/shared
       next:
         specifier: 16.1.1
         version: 16.1.1(@babel/core@7.28.5)(babel-plugin-react-compiler@1.0.0)(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
@@ -72,6 +75,9 @@ importers:
 
   apps/website:
     dependencies:
+      '@vvk/shared':
+        specifier: workspace:*
+        version: link:../../packages/shared
       next:
         specifier: 16.1.1
         version: 16.1.1(@babel/core@7.28.5)(babel-plugin-react-compiler@1.0.0)(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
@@ -118,6 +124,9 @@ importers:
 
   apps/weekly:
     dependencies:
+      '@vvk/shared':
+        specifier: workspace:*
+        version: link:../../packages/shared
       next:
         specifier: 16.1.1
         version: 16.1.1(@babel/core@7.28.5)(babel-plugin-react-compiler@1.0.0)(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
@@ -202,6 +211,15 @@ importers:
         version: 5.2.0(eslint@9.39.2(jiti@2.6.1))
       typescript:
         specifier: '>=4.7.0'
+        version: 5.9.3
+
+  packages/shared:
+    devDependencies:
+      '@vvk/typescript-config':
+        specifier: workspace:*
+        version: link:../typescript-config
+      typescript:
+        specifier: ^5
         version: 5.9.3
 
   packages/typescript-config: {}
